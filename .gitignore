@@ -22,8 +22,7 @@
 /*.war
 
 # plugin release files
-/*.zip
-/plugin.xml
+/*.zip/plugin.xml
 
 # older plugin install locations
 /plugins
@@ -31,3 +30,5 @@
 
 # "temporary" build files
 /target
+/.idea/
+/reverseEach.iml

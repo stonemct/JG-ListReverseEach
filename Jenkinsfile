@@ -2,7 +2,7 @@
 
 node() {
 
-    List LL = ['s1', 's2', 's3']
+    List LL = [ 's1', 's2', 's3' ]
 
     LL.each { loopoflist(it) }
 
@@ -18,7 +18,7 @@ output: none
 """
     println ITT
     stage(ITT)
-            {
-                println ITT
-            }
+        {
+            println ITT
+        }
 }
