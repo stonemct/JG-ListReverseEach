@@ -1,5 +1,6 @@
 #!`which env` groovy
 
+List LL = []
 
 properties([
     parameters([
@@ -29,8 +30,8 @@ node() {
     if ( env.Environment.isEmpty() ) {
         echo "Environment not specified."
         autoCancelled = true
-        error('Aborting the build.')
-        List LL = [ 's1', 's2', 's3' ]
+//        error('Aborting the build.')
+        LL = [ 's1', 's2', 's3' ]
     }
     else {
         echo "Environment total: ${env.Environment}"
@@ -38,7 +39,7 @@ node() {
         for (x in Env_Array) {
             echo "ENV: ${x}"
         }
-        List LL = params.Environment.split(',')
+        LL = params.Environment.split(',')
     }
     println 'LL: ' + LL
 
