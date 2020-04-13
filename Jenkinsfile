@@ -20,10 +20,25 @@ properties([
                      'return[\'Development\',\'QA\',\'Staging\',\'Production\']'
              ]
          ]
-        ]
-    ])
+        ],
+        booleanParam(
+              defaultValue: false,
+              description: 'If this box is checked, the parameters in the Jenkinsfile will be populated in Jenkins,' +
+                    ' and the job will end.  It is safe to check only this box and then execute the job.',
+              name: 'Update_Parameters'
+        )
+      ]),
+      buildDiscarder(logRotator(numToKeepStr: '40')),
+      disableConcurrentBuilds()
 ])
 
+
+// Update the parameters and then exit
+if (params.Update_Parameters) {
+  println "The Update_Parameters flag was set.  This job is now ready to execute with the updated parameters"
+  currentBuild.result = 'SUCCESS'
+  return
+}
 
 node() {
 
